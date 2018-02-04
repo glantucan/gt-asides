@@ -1,7 +1,7 @@
 <?php
 
 class Uninstall {
-  static function execute() {
-    
-  }
+    static function execute() {
+        
+    }
 }
