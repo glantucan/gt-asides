@@ -1,9 +1,7 @@
 <?php
 /**
- * 
+ * An init_hook implementation. Adds custom posts
  */
-
-// init hook callback
 function gt_asides_register_custom_posts_init() {
     // all new post types must be registered after init
     
@@ -54,7 +52,7 @@ function gt_asides_register_custom_posts_init() {
         'taxonomies'         => array('category', 'post_tag'),
     );
     register_post_type('gt_post_w_asides', $args);
-
+    add_post_type_support( 'post_with_asides', 'wpcom-markdown' );
     // Aside post
     // TODO: Should I nest posts with asides or just make asides simple posts with some custom fields???
 }
