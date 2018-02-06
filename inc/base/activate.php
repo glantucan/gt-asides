@@ -16,7 +16,7 @@ function gt_asides_activate() {
         //gt_asides_register_custom_posts_init();
         //add_post_type_support( 'post_with_asides', 'wpcom-markdown' );
 
-        add_action('admin_enqueue_scripts', 'gt_asides_enqueue_assets');
+        //add_action('admin_enqueue_scripts', 'gt_asides_enqueue_assets');
 
         // add a link to the plugin entry(like activate, deactivate and  uninstall)
         add_filter( 'plugin_action_links_' . plugin_basename(__FILE__ ),
@@ -43,7 +43,7 @@ function check_dependencies() {
     return $dependencies_check;
 }
 
-function gt_asides_enqueue_assets() {
+function gt_asides_admin_enqueue_assets() {
     //wp_enqueue_style('get-hyper-asides-style', plugins_url('/css/gt-hyper-asides.css', __FILE__));
     //wp_enqueue_scripts('get-hyper-asides-style', plugins_url('/js/gt-hyper-asides.js', __FILE__));
 }

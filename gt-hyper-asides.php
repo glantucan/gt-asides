@@ -19,6 +19,7 @@ if (!function_exists('add_action')) { echo 'Not allowed'; exit(); } */
 
 define( 'GT_ASIDES_MIN_VERSION', '4.9' );
 define( 'GT_ASIDES_FOLDER',  plugin_dir_path( __FILE__ ) );
+define( 'GT_ASIDES_URL',  plugin_dir_url( __FILE__ ) );
 
 // Includes
 require_once( GT_ASIDES_FOLDER . 'debug/log.php' );
@@ -50,12 +51,25 @@ add_filter( 'no_texturize_shortcodes', function($shortcodes) {
 remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop' , 12);
 
+add_action('the_post', 'gt_asides_enqueue_assets_for_posts');
+//add_action('enqueue_scripts', 'gt_asides_enqueue_assets');
 
+function gt_asides_enqueue_assets_for_posts($post) {
+    // Assume that we don't want to load assets for asides unles on a single post page or page
+    if ( is_single() || is_page() ) {
+        // Check whether we do have [aside ...] or not in the post before loading css and scripts
+        if ( stripos($post->post_content, '[aside') ) {
+            wp_enqueue_style( 'gt-asides-css', GT_ASIDES_URL . 'css/gt-asides.css' );
+            wp_enqueue_script( 'gt-asides-js', GT_ASIDES_URL . 'js/gt-asides.js' );
+        }
+        
+    } 
+     // This ought to be on a child theme
+     wp_enqueue_style( 'gt-style-css', GT_ASIDES_URL . 'css/gt-style.css' );
+    
+}
 
 add_action( 'admin_menu', 'gt_asides_add_admin_pages' );
-
-
-
 /**
  * Creates an admin page for the plugin
  * FIXME: Do we need an admin page?

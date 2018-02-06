@@ -1,0 +1,159 @@
+
+
+#main.main .post.type-post,
+.post.type-post {
+    padding-top: 7em;
+    padding-bottom: 4em;
+    margin-bottom: 0;
+}
+#main.main .post.type-post:nth-child(2n+1),
+.post.type-post:nth-child(2n+1) {
+    background:
+    radial-gradient(
+        circle at 58% 101%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 10px,
+        rgba(187, 129, 159, 0.5) 11px,
+        rgba(187, 129, 159, 0.5) 15px,
+        transparent 16px
+    ),
+    radial-gradient(
+        circle at 75% 98.5%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 20px,
+        rgba(187, 129, 159, 0.5) 21px,
+        rgba(187, 129, 159, 0.5) 27px,
+        transparent 28px
+    ),
+    radial-gradient(
+        circle at 88% 100%,
+        rgba(149, 33, 93,1) 0,
+        rgba(149, 33, 93,1) 30px,
+        rgba(187, 129, 159, 0.5) 31px,
+        rgba(187, 129, 159, 0.5) 45px,
+        transparent 46px
+    ),
+    
+    radial-gradient(
+        circle at 5% 1%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 10px,
+        rgba(187, 129, 159, 0.5) 11px,
+        rgba(187, 129, 159, 0.5) 15px,
+        transparent 16px
+    ),
+    radial-gradient(
+        circle at 25% 0.2%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 20px,
+        rgba(187, 129, 159, 0.5) 21px,
+        rgba(187, 129, 159, 0.5) 27px,
+        transparent 28px
+    ),
+    radial-gradient(
+        circle at 22% 0%,
+        rgba(149, 33, 93,1) 0,
+        rgba(149, 33, 93,1) 30px,
+        rgba(187, 129, 159, 0.5) 31px,
+        rgba(187, 129, 159, 0.5) 45px,
+        transparent 46px
+    ),
+    radial-gradient(
+        circle at 95% 100%,
+        transparent 0,
+        transparent 85px,
+        rgb(255, 255, 255) 86px
+    );
+}
+#main.main .post.type-post:nth-child(2n),
+.post.type-post:nth-child(2n) {
+    background:
+    radial-gradient(
+        circle at 58% 1%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 10px,
+        rgba(187, 129, 159, 0.5) 11px,
+        rgba(187, 129, 159, 0.5) 15px,
+        transparent 16px
+    ),
+    radial-gradient(
+        circle at 75% -1.5%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 20px,
+        rgba(187, 129, 159, 0.5) 21px,
+        rgba(187, 129, 159, 0.5) 27px,
+        transparent 28px
+    ),
+    radial-gradient(
+        circle at 88% 0%,
+        rgba(149, 33, 93,1) 0,
+        rgba(149, 33, 93,1) 30px,
+        rgba(187, 129, 159, 0.5) 31px,
+        rgba(187, 129, 159, 0.5) 45px,
+        transparent 46px
+    ),
+    
+    
+    radial-gradient(
+        circle at 5% 101%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 10px,
+        rgba(187, 129, 159, 0.5) 11px,
+        rgba(187, 129, 159, 0.5) 15px,
+        transparent 16px
+    ),
+    radial-gradient(
+        circle at 25% 100.2%,
+        rgb(116, 25, 72) 0,
+        rgb(116, 25, 72) 20px,
+        rgba(187, 129, 159, 0.5) 21px,
+        rgba(187, 129, 159, 0.5) 27px,
+        transparent 28px
+    ),
+    radial-gradient(
+        circle at 22% 100%,
+        rgba(149, 33, 93,1) 0,
+        rgba(149, 33, 93,1) 30px,
+        rgba(187, 129, 159, 0.5) 31px,
+        rgba(187, 129, 159, 0.5) 45px,
+        transparent 46px
+    ),
+    radial-gradient(
+        circle at 95% 0%,
+        transparent 0,
+        transparent 85px,
+        rgb(255, 255, 255) 86px
+    );
+}
+    /* background: linear-gradient(-45deg,  
+    rgba(149, 33, 93, 0.6) 0em,
+        rgba(149, 33, 93, 0.6) 3em,
+        rgba(255, 255, 255, .35) 3.01em,
+        rgba(255, 255, 255, .3) 4em,
+        rgba(149, 33, 93, 0.6) 4.01em,
+        transparent 5.9em,
+        rgba(255, 255, 255, .9) 5.91em,
+        rgba(255, 255, 255, .9) 6.3em,
+        rgba(149, 33, 93, 0.6) 6.31em,
+        rgba(149, 33, 93, 0.6) 6.70em,
+        rgba(255, 255, 255, 1) 6.71em,
+        rgba(255,255,255,1) 100%); */
+#main.main .post.type-post .featured-bar {
+    height: 5px;
+    background-color: transparent;
+}
+
+#main.main .post.type-post .entry-header {
+    margin: 1em 0;
+}
+
+.post-featured-image {
+    padding-top: 1em;
+}
+
+#main.main .post-thumbnail-container + .featured-bar {
+    margin-top: .5em;
+}
+#main.main .post-thumbnail-container:hover + .featured-bar::before {
+    opacity: 0;
+}

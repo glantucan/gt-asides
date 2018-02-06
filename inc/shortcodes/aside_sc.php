@@ -24,7 +24,7 @@ function aside_shortcode_parser( $atts, $content = null ) {
     if (!isset($attributes['c']) || $attributes['c']=='true') {
         $wrapper_classes .= ' collapse'; 
     }
-    $rendered_content = '<div class="gt-aside' . $wrapper_classes . '">';
+    $rendered_content = '<div class="' . $wrapper_classes . '">';
     if (!empty( $attributes['l'] )) {
         // TODO: load the aside post
     }
@@ -42,6 +42,6 @@ function aside_shortcode_parser( $atts, $content = null ) {
     }
     // TODO: Add support for inner shortcodes
     $rendered_content .= '</div>';
-    gt_log($rendered_content);
+    //gt_log($rendered_content);
     return $rendered_content;
 }
