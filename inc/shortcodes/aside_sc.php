@@ -64,14 +64,13 @@ function aside_shortcode_renderer($attributes, $content = null, $aside_classes, 
     
     // Get the aside button label text
     $aside_label = '';
-    if ( !empty($attributes['t'] )) {
+    if ( !empty($attributes) && !empty($attributes['t'] )) {
         $aside_class_label = $aside_classes['types'][$attributes['t']]['label'];
         if ( !empty($aside_class_label) ) {
             $aside_label = $aside_class_label;
         } 
     }
-    gt_log($aside_class_label);
-    gt_log( empty($aside_label));
+    //gt_log($aside_class_label);
     
     if( empty($aside_label) ) {
         $aside_label = $aside_classes['base']['label'];
