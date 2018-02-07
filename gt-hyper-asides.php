@@ -32,7 +32,9 @@ $GT_ASIDES_CONF_DEFAULTS = array(
             'label' => 'Leer más sobre: ',
         ),
         'button' => array(
-            'class' => 'gt_asides-toggle-btn'
+            'base' => 'gt-aside-toggle-btn-wrapper',
+            'mouseOver' => 'go-in',
+            'mouseOut' => 'go-out',
         ),
         'types' => array(
             'more' => array(
@@ -120,7 +122,7 @@ function gt_asides_enqueue_assets_for_posts($post) {
                 'postId' => 'post-' . $post->ID,
                 'mainAsideClass' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['base']['class'],
                 'asideClasses' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['types'],
-                'buttonClass' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['button']['class'],
+                'buttonClasses' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['button'],
             ));
         }
         

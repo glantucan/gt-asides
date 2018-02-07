@@ -78,12 +78,12 @@ function aside_shortcode_renderer($attributes, $content = null, $aside_classes, 
     gt_log($aside_label);
 
     $rendered_content  = '<div class="' . $wrapper_classes . '">';
-    $rendered_content .= '  <div class="gt-asides-toggle-btn-wrapper">' .
-                                '<div class="gt-asides-toggle-btn-wrapper-deco">' .
+    $rendered_content .= '  <div class="gt-aside-toggle-btn-wrapper">' .
+                                '<div class="gt-aside-toggle-btn-wrapper-deco">' .
                                 '</div>' .
-                                '<div class="gt_asides-toggle-btn">' .
-                                    '<span class="gt-asides-icon"></span>' .
-                                    '<span class="gt-asides-label">' .
+                                '<div class="gt-aside-toggle-btn">' .
+                                    '<span class="gt-aside-icon"></span>' .
+                                    '<span class="gt-aside-label">' .
                                     $aside_label . 
                                     '</span>' .
                                 '</div>' .

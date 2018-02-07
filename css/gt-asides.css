@@ -5,20 +5,23 @@
     margin-bottom: 0;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper {
+.gt-aside .gt-aside-toggle-btn-wrapper {
+    pointer-events: auto;
     position: relative;
     overflow: hidden;
     height: 45px;
+    width: 100%;
     margin-left: -50px;
     background: url(../imgs/line.png) no-repeat;
     background-position: 20px 26px;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn {
+.gt-aside .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn {
     width: 100%;
+    pointer-events: none;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-icon:before {
+.gt-aside .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn .gt-aside-icon:before {
     display: inline-block;
     content: '+';
     position: relative;
@@ -27,7 +30,8 @@
     font-weight: bold;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-icon {
+.gt-aside .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn .gt-aside-icon {
+    pointer-events: none;
     display: inline-block;
     box-sizing: border-box;
     position: relative;
@@ -41,17 +45,14 @@
     margin: 0 .4em 0 0;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn:hover {}
+.gt-aside .gt-aside-toggle-btn-wrapper:hover .gt-aside-toggle-btn {}
 
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-label {
-    display: inline-block;
-}
-
-.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-label {
+.gt-aside .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn .gt-aside-label {
+    pointer-events: none;
     display: none;
 }
 
-.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn:hover .gt-asides-label {
+.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper:hover .gt-aside-toggle-btn .gt-aside-label {
     display: inline-block;
 }
 
