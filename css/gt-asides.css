@@ -7,11 +7,15 @@
 
 .gt-aside .gt-asides-toggle-btn-wrapper {
     position: relative;
+    overflow: hidden;
+    height: 45px;
+    margin-left: -50px;
+    background: url(../imgs/line.png) no-repeat;
+    background-position: 20px 26px;
 }
 
 .gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn {
     width: 100%;
-    overflow: hidden;
 }
 
 .gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-icon:before {
@@ -37,25 +41,10 @@
     margin: 0 .4em 0 0;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper {
-    border-bottom: dashed 1px #333;
-}
-
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn {
-    position: relative;
-    top: 15px;
-    overflow: hidden;
-    border-bottom: dashed 1px #333;
-}
-
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn:hover {
-    overflow: hidden;
-    border-bottom: dashed 1px #333;
-}
+.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn:hover {}
 
 .gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-label {
     display: inline-block;
-    pointer-events: none;
 }
 
 .gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-label {

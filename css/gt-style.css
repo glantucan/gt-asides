@@ -22,12 +22,112 @@
     padding-left: 3ex;
 }
 
-.gt-aside .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn {}
-
 
 /* #region gt-asides animated styles */
 
+
+/* Rocket on aside */
+
+.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt-asides-toggle-btn-wrapper-deco {
+    position: absolute;
+    height: 40px;
+    width: 800px;
+    top: 5px;
+    -webkit-transform: translateX(-800px);
+    transform: translateX(-800px);
+    background: url(../imgs/rocket.png), url(../imgs/flame_bottom.png), url(../imgs/flame_top.png), url(../imgs/rocket_line.png);
+    background-repeat: no-repeat;
+    background-position-x: 720px, 714px, 714px, -50px;
+    background-position-y: 9px, 10px, 29px, 20px;
+    background-size: 47px 25px, 6px 5px, 6px 5px, 800px 2px;
+}
+
+.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper:hover .gt-asides-toggle-btn-wrapper-deco {
+    -webkit-animation-name: rocket-burst, rocket-move;
+    animation-name: rocket-burst, rocket-move;
+    -webkit-animation-iteration-count: infinite, 1;
+    animation-iteration-count: infinite, 1;
+    -webkit-animation-iteration-count: infinite, 1;
+    animation-duration: .15s, 1.5s;
+    -webkit-animation-duration: .15s, 1.5s;
+    animation-delay: 0s, 1s;
+    -webkit-animation-delay: 0s, 0s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rocket-move {
+    from {
+        transform: translateX(-800);
+    }
+    to {
+        transform: translateX(-300px);
+    }
+}
+
+@-webkit-keyframes rocket-move {
+    from {
+        -webkit-transform: translateX(-830);
+    }
+    to {
+        -webkit-transform: translateX(-330px);
+    }
+}
+
+@keyframes rocket-burst {
+    from {
+        background-position-x: 720px, 710, 714px, -50px;
+        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
+    }
+    25% {
+        background-position-x: 720px, 714px, 706px, -50px;
+        background-size: 47px 25px, 7px 5px, 22px 5px, 800px 2px;
+    }
+    50% {
+        background-position-x: 720px, 714px, 710, -50px;
+        background-size: 47px 25px, 12px 5px, 12px 5px, 800px 2px;
+    }
+    75% {
+        background-position-x: 720px, 708px, 717px, -50px;
+        background-size: 47px 25px, 20px 5px, 4px 5px, 800px 2px;
+    }
+    to {
+        background-position-x: 720px, 710, 714px, -50px;
+        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
+    }
+}
+
+@-webkit-keyframes rocket-burst {
+    from {
+        background-position-x: 720px, 710, 714px, -50px;
+        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
+    }
+    25% {
+        background-position-x: 720px, 714px, 706px, -50px;
+        background-size: 47px 25px, 7px 5px, 22px 5px, 800px 2px;
+    }
+    50% {
+        background-position-x: 720px, 714px, 710, -50px;
+        background-size: 47px 25px, 12px 5px, 12px 5px, 800px 2px;
+    }
+    75% {
+        background-position-x: 720px, 708px, 717px, -50px;
+        background-size: 47px 25px, 20px 5px, 4px 5px, 800px 2px;
+    }
+    to {
+        background-position-x: 720px, 710, 714px, -50px;
+        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
+    }
+}
+
+.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn {
+    position: relative;
+    top: 15px;
+    left: 0;
+}
+
 .gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-icon {
+    position: relative;
+    top: 1px;
     -webkit-transform-origin: center center;
     transform-origin: center center;
     -webkit-animation-name: swing;
@@ -40,17 +140,25 @@
     animation-iteration-count: infinite;
 }
 
-.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn:hover .gt-asides-icon {
-    -webkit-animation: 0;
-    animation: 0;
+.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper:hover .gt_asides-toggle-btn .gt-asides-icon {
+    -webkit-animation-name: driftUp;
+    animation-name: driftUp;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    transition: background-color 0.5s;
+    background-color: #96225E;
 }
 
 .gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn .gt-asides-label {
+    font-family: 'Josefin Sans';
+    color: #96225E;
     position: relative;
-    top: -0.5em;
+    top: -18px;
 }
 
-.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper .gt_asides-toggle-btn:hover .gt-asides-label {
+.gt-aside.gt-aside-collapse .gt-asides-toggle-btn-wrapper:hover .gt_asides-toggle-btn .gt-asides-label {
     -webkit-animation-duration: .6s;
     animation-duration: .6s;
     -webkit-animation-delay: .1s;

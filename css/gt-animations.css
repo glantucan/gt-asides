@@ -8,6 +8,29 @@
  * Copyright (c) 2018 Daniel Eden
  */
 
+@-webkit-keyframes driftUp {
+    from {
+        -webkit-transform: translateY(0);
+        visibility: visible;
+    }
+    to {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes driftUp {
+    from {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        visibility: visible;
+    }
+    to {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+    }
+}
+
 @-webkit-keyframes fadeInDown {
     from {
         opacity: 0;
