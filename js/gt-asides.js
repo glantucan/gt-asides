@@ -1,16 +1,22 @@
 (function(data) {
+    'use strict';
     console.log('Loading aside scripts');
     var post,
         asides,
         asideClasses;
-    console.log(data.buttonClasses);
+    console.log(data);
     // Set local vars
     post = document.getElementById(data.postId);
     asideClasses = Object.values(data.asideClasses);
-    asides = getAsides(post, data.mainAsideClass, data.buttonClasses.base);
+    asides = getAsides(post, data.mainAsideClass, data.buttonClasses.class);
 
 
     attachEvents(post);
+
+    function toggleAside(aside, collapseClass) {
+        console.log(collapseClass);
+        aside.classList.toggle(collapseClass);
+    }
 
     function switchCssClasses(target, oldClass, newClass) {
         removeCssClass(target, oldClass);
@@ -20,35 +26,44 @@
     function removeCssClass(target, cssClass) {
         if (target.classList.contains(cssClass)) {
             target.classList.remove(cssClass);
+        } else {
+            console.warn("target doesn't have a class named", cssClass);
         }
     }
 
     function addCssClass(target, cssClass) {
         if (!target.classList.contains(cssClass)) {
             target.classList.add(cssClass);
+        } else {
+            console.warn("target already have a class named", cssClass);
         }
     }
 
 
     function mouseOverHandler(e) {
-        if (e.target.classList.contains(data.buttonClasses.base)) {
-            switchCssClasses(e.target, data.buttonClasses.mouseOut, data.buttonClasses.mouseOver);
-            console.log('hover');
+        if (e.target.classList.contains(data.buttonClasses.class)) {
+            switchCssClasses(e.target, data.buttonClasses.mouseOut,
+                data.buttonClasses.mouseOver);
         }
     }
 
     function mouseOutHandler(e) {
-        if (e.target.classList.contains(data.buttonClasses.base)) {
-            switchCssClasses(e.target, data.buttonClasses.mouseOver, data.buttonClasses.mouseOut);
+        if (e.target.classList.contains(data.buttonClasses.class)) {
+            switchCssClasses(e.target, data.buttonClasses.mouseOver,
+                data.buttonClasses.mouseOut);
             setTimeout(removeCssClass, 500, e.target, data.buttonClasses.mouseOut);
-            console.log('hout');
         }
     }
 
     function clickHandler(e) {
-        if (e.target.classList.contains(data.buttonClasses.base)) {
-            console.log('click');
-            toggleAside(e.target, data.buttonClasses.collapsed);
+        if (e.target.classList.contains(data.buttonClasses.class)) {
+            // Get the parent aside of the target button:
+            var targetAside = asides.find(function(aside) {
+                return  aside.firstBtn == e.target || 
+                        aside.secondBtn == e.target;
+            });
+            console.log(targetAside);
+            toggleAside(targetAside.aside, data.collapseClass);
         }
     }
 
@@ -60,7 +75,7 @@
     }
 
     function dettachEvents(parent) {
-        parent.removeEventListener('click', toggleAsside);
+        parent.removeEventListener('click', clickHandler);
         parent.removeEventListener('mouseover', mouseOverHandler);
         parent.removeEventListener('mouseout', mouseOutHandler);
     }
@@ -74,10 +89,14 @@
     function getAsides(post, asideMainClass, btnClass) {
 
         var asides = post.querySelectorAll('.' + asideMainClass);
+        console.log(asides);
         asides = Array.prototype.map.call(asides, function(aside) {
+            // get the two toggle buttons
+            var buttons = aside.querySelectorAll('.' + btnClass);
             return {
                 aside: aside,
-                btn: aside.querySelector('.' + btnClass)
+                firstBtn: buttons[0],
+                secondBtn: buttons[1]
             }
         });
         console.log(asides);

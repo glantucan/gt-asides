@@ -25,40 +25,41 @@ $GT_ASIDES_CONF_DEFAULTS = array(
     'css_classes' => array(
         'base' => array(
             'class' => 'gt-aside',
-            'label' => 'Leer más ... ',
         ),
         'collapsed' => array(
-            'class' => 'gt-aside-collapse',
-            'label' => 'Leer más sobre: ',
+            'class' => 'gt-collapse',
         ),
         'button' => array(
-            'base' => 'gt-aside-toggle-btn-wrapper',
+            'class' => 'gt-toggle-btn',
+            'closedLabel' => 'Cerrar inciso',
+            'openedLabel' => 'Leer más ... ',
             'mouseOver' => 'go-in',
             'mouseOut' => 'go-out',
         ),
+        'content-class' => 'gt-content',
         'types' => array(
             'more' => array(
-                'class' => 'gt-aside-more',
+                'class' => 'gt-more',
                 'label' => '',
             ),
             'example' => array(
-                'class' => 'gt-aside-example',
+                'class' => 'gt-example',
                 'label' => '',
             ),
             'definition' => array(
-                'class' => 'gt-aside-definition',
+                'class' => 'gt-definition',
                 'label' => '',
             ),
             'background' => array(
-                'class' => 'gt-aside-background',
+                'class' => 'gt-background',
                 'label' => '',
             ),
             'in-depth' => array(
-                'class' => 'gt-aside-in-depth',
+                'class' => 'gt-in-depth',
                 'label' => '',
             ),
             'story' => array(
-                'class' => 'gt-aside-story',
+                'class' => 'gt-story',
                 'label' => '',
             ),
         ),
@@ -110,7 +111,9 @@ function gt_asides_enqueue_assets_for_posts($post) {
     // Assume that we don't want to load assets for asides unles on a single post page or page
     global $GT_ASIDES_CONF_DEFAULTS;
     // This ought to be on a child theme
-    wp_enqueue_style( 'gt-animations-css', GT_ASIDES_URL . 'css/gt-animations.css' );
+    
+    wp_enqueue_style( 'gt-animate-css', GT_ASIDES_URL . 'css/animate.css' );
+    wp_enqueue_style( 'gt-aside-animations-css', GT_ASIDES_URL . 'css/gt-aside-animations.css' );
     wp_enqueue_style( 'gt-style-css', GT_ASIDES_URL . 'css/gt-style.css' );
 
     if ( is_single() || is_page() ) {
@@ -123,12 +126,10 @@ function gt_asides_enqueue_assets_for_posts($post) {
                 'mainAsideClass' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['base']['class'],
                 'asideClasses' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['types'],
                 'buttonClasses' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['button'],
+                'collapseClass' => $GT_ASIDES_CONF_DEFAULTS['css_classes']['collapsed']['class'],
             ));
         }
-        
     } 
-     
-    
 }
 
 add_action( 'admin_menu', 'gt_asides_add_admin_pages' );

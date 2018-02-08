@@ -44,6 +44,8 @@ function gt_asides_aside_shortcode_renderer( $atts, $content = null ) {
  * @return void
  */
 function aside_shortcode_renderer($attributes, $content = null, $aside_classes, $md_parser) {
+    
+    $collapsed = true;
 
     // Decide if we load another post as the aside content
     if (!empty( $attributes['l'] )) {
@@ -57,43 +59,55 @@ function aside_shortcode_renderer($attributes, $content = null, $aside_classes, 
     $wrapper_classes = $aside_classes['base']['class'] . ' ' . 
                        $aside_classes['types'][$attributes['t']]['class'];
 
-    // COllapse by default?
+    // COllapse by default
     if (!isset($attributes['c']) || $attributes['c']=='true') {
         $wrapper_classes .= ' ' . $aside_classes['collapsed']['class']; 
+    } else {
+        $collapsed = false;
     }
     
-    // Get the aside button label text
-    $aside_label = '';
+    // Get the aside button labels text
+    $open_label = '';
     if ( !empty($attributes) && !empty($attributes['t'] )) {
         $aside_class_label = $aside_classes['types'][$attributes['t']]['label'];
         if ( !empty($aside_class_label) ) {
-            $aside_label = $aside_class_label;
+            $open_label = $aside_class_label;
         } 
     }
-    //gt_log($aside_class_label);
-    
-    if( empty($aside_label) ) {
-        $aside_label = $aside_classes['base']['label'];
+    if( empty($open_label) ) {
+        $open_label = $aside_classes['button']['openedLabel'];
     }
-    gt_log($aside_label);
+    $close_label = $aside_classes['button']['closedLabel'];
 
+    // Render the html
     $rendered_content  = '<div class="' . $wrapper_classes . '">';
-    $rendered_content .= '  <div class="gt-aside-toggle-btn-wrapper">' .
-                                '<div class="gt-aside-toggle-btn-wrapper-deco">' .
+    $rendered_content .= '  <div class="' . $aside_classes['button']['class']. '">' .
+                                '<div class="gt-deco"></div>' .
+                                '<div class="gt-icon"></div>' .
+                                '<div class="gt-label gt-collapsed">' .
+                                    $open_label . 
                                 '</div>' .
-                                '<div class="gt-aside-toggle-btn">' .
-                                    '<span class="gt-aside-icon"></span>' .
-                                    '<span class="gt-aside-label">' .
-                                    $aside_label . 
-                                    '</span>' .
+                                '<div class="gt-label gt-opened">' .
+                                    $close_label . 
                                 '</div>' .
                             '</div>';
-    $rendered_content .= '  <div class="gt-aside-content">';
+    $rendered_content .= '  <div class="' .  $aside_classes['content-class'] . '">';
     $rendered_content .=        gt_parse_markdown( $aside_content, $md_parser );
-    $rendered_content .= '  </div>' .
-                         '</div>';
+    // insert the toggle button also at the end of th aside content.
+    $rendered_content .= '      <div class="' . $aside_classes['button']['class']. '">' .
+                                    '<div class="gt-deco"></div>' .
+                                    '<div class="gt-icon"></div>' .
+                                    '<div class="gt-label gt-collapsed">' .
+                                        $open_label . 
+                                    '</div>' .
+                                    '<div class="gt-label gt-opened">' .
+                                        $close_label . 
+                                    '</div>' .
+                                '</div>';
+    $rendered_content .= '  </div>';
+    $rendered_content .= '</div>';
 
-    //gt_log($rendered_content);
+    gt_log('$rendered_content');
     return $rendered_content;
 }
 

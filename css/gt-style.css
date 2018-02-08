@@ -1,3 +1,115 @@
+/* #region gt-aside animated styles */
+/* 
+TODO: Fix this animations
+
+.gt-toggle-btn {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 45px;
+    width: calc(100% + 50px);
+    margin-left: -50px;
+    background: url(../imgs/line.png) no-repeat;
+    background-position: 20px 26px;
+}
+
+.gt-collapse .gt-toggle-btn .gt-icon {
+    position: relative;
+    top: 1px;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-name: aside-call;
+    animation-name: aside-call;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.gt-collapse .gt-toggle-btn:hover .gt-icon {
+    -webkit-animation-name: driftUp;
+    animation-name: driftUp;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    transition: background-color 0.5s;
+    background-color: #96225E;
+}
+
+.gt-collapse .gt-toggle-btn .gt-label {
+    font-family: 'Josefin Sans';
+    color: #96225E;
+    position: relative;
+    top: -18px;
+}
+
+.gt-collapse .gt-toggle-btn:hover .gt-label {
+    -webkit-animation-duration: .6s;
+    animation-duration: .6s;
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+}
+
+.gt-collapse .gt-toggle-btn .gt-deco {
+    pointer-events: none;
+    position: absolute;
+    height: 40px;
+    width: 800px;
+    top: 5px;
+    background: url(../imgs/rocket.png), url(../imgs/flame_bottom.png), 
+                url(../imgs/flame_top.png), url(../imgs/rocket_line.png), transparent;
+    background-repeat: no-repeat;
+    background-position-x: 720px, 714px, 714px, -50px;
+    background-position-y: 9px, 10px, 29px, 20px;
+    background-size: 47px 25px, 6px 5px, 6px 5px, 800px 2px;
+    transform: translateX(-800px);
+    -webkit-transform: translateX(-800px);
+}
+
+.gt-collapse .gt-toggle-btn.go-in .gt-deco {
+    -webkit-animation-name: rocket-burst;
+    animation-name: rocket-burst;
+    -webkit-animation-iteration-count: infinite, 1;
+    animation-iteration-count: infinite, 1;
+    -webkit-animation-iteration-count: infinite, 1;
+    animation-duration: .15s, 1.5s;
+    -webkit-animation-duration: .15s, 1.5s;
+    animation-delay: 0s, 1s;
+    -webkit-animation-delay: 0s, 0s;
+    animation-fill-mode: forwards;
+    transform: translateX(-300px);
+    -webkit-transform: translateX(-300px);
+    transition: transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gt-collapse .gt-toggle-btn.go-out .gt-deco {
+    -webkit-animation-name: rocket-burst;
+    animation-name: rocket-burst;
+    -webkit-animation-iteration-count: infinite, 1;
+    animation-iteration-count: infinite, 1;
+    -webkit-animation-iteration-count: infinite, 1;
+    animation-duration: .15s, 1.5s;
+    -webkit-animation-duration: .15s, 1.5s;
+    animation-delay: 0s, 1s;
+    -webkit-animation-delay: 0s, 0s;
+    animation-fill-mode: forwards;
+    transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s;
+}
+
+ */
+
+/* #endregion */
+
 #main.main article h2 {
     font-size: 1.7em !important;
 }
@@ -21,174 +133,6 @@
 #main.main article ul {
     padding-left: 3ex;
 }
-
-
-/* #region gt-aside animated styles */
-
-
-/* Rocket on aside */
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn-wrapper-deco {
-    pointer-events: none;
-    position: absolute;
-    height: 40px;
-    width: 800px;
-    top: 5px;
-    background: url(../imgs/rocket.png), url(../imgs/flame_bottom.png), url(../imgs/flame_top.png), url(../imgs/rocket_line.png), transparent;
-    background-repeat: no-repeat;
-    background-position-x: 720px, 714px, 714px, -50px;
-    background-position-y: 9px, 10px, 29px, 20px;
-    background-size: 47px 25px, 6px 5px, 6px 5px, 800px 2px;
-    transform: translateX(-800px);
-    -webkit-transform: translateX(-800px);
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper.go-in .gt-aside-toggle-btn-wrapper-deco {
-    -webkit-animation-name: rocket-burst;
-    animation-name: rocket-burst;
-    -webkit-animation-iteration-count: infinite, 1;
-    animation-iteration-count: infinite, 1;
-    -webkit-animation-iteration-count: infinite, 1;
-    animation-duration: .15s, 1.5s;
-    -webkit-animation-duration: .15s, 1.5s;
-    animation-delay: 0s, 1s;
-    -webkit-animation-delay: 0s, 0s;
-    animation-fill-mode: forwards;
-    transform: translateX(-300px);
-    -webkit-transform: translateX(-300px);
-    transition: transform 1.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper.go-out .gt-aside-toggle-btn-wrapper-deco {
-    -webkit-animation-name: rocket-burst;
-    animation-name: rocket-burst;
-    -webkit-animation-iteration-count: infinite, 1;
-    animation-iteration-count: infinite, 1;
-    -webkit-animation-iteration-count: infinite, 1;
-    animation-duration: .15s, 1.5s;
-    -webkit-animation-duration: .15s, 1.5s;
-    animation-delay: 0s, 1s;
-    -webkit-animation-delay: 0s, 0s;
-    animation-fill-mode: forwards;
-    transform: translateX(200px);
-    -webkit-transform: translateX(200px);
-    opacity: 0;
-    transition: transform .8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s;
-}
-
-
-/* .gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper:hover .gt-aside-toggle-btn-wrapper-deco {
-    -webkit-animation-name: rocket-burst;
-    animation-name: rocket-burst;
-    -webkit-animation-iteration-count: infinite, 1;
-    animation-iteration-count: infinite, 1;
-    -webkit-animation-iteration-count: infinite, 1;
-    animation-duration: .15s, 1.5s;
-    -webkit-animation-duration: .15s, 1.5s;
-    animation-delay: 0s, 1s;
-    -webkit-animation-delay: 0s, 0s;
-    animation-fill-mode: forwards;
-    transform: translateX(-300px);
-} */
-
-@keyframes rocket-burst {
-    from {
-        background-position-x: 720px, 710, 714px, -50px;
-        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
-    }
-    25% {
-        background-position-x: 720px, 714px, 706px, -50px;
-        background-size: 47px 25px, 7px 5px, 22px 5px, 800px 2px;
-    }
-    50% {
-        background-position-x: 720px, 714px, 710, -50px;
-        background-size: 47px 25px, 12px 5px, 12px 5px, 800px 2px;
-    }
-    75% {
-        background-position-x: 720px, 708px, 717px, -50px;
-        background-size: 47px 25px, 20px 5px, 4px 5px, 800px 2px;
-    }
-    to {
-        background-position-x: 720px, 710, 714px, -50px;
-        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
-    }
-}
-
-@-webkit-keyframes rocket-burst {
-    from {
-        background-position-x: 720px, 710, 714px, -50px;
-        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
-    }
-    25% {
-        background-position-x: 720px, 714px, 706px, -50px;
-        background-size: 47px 25px, 7px 5px, 22px 5px, 800px 2px;
-    }
-    50% {
-        background-position-x: 720px, 714px, 710, -50px;
-        background-size: 47px 25px, 12px 5px, 12px 5px, 800px 2px;
-    }
-    75% {
-        background-position-x: 720px, 708px, 717px, -50px;
-        background-size: 47px 25px, 20px 5px, 4px 5px, 800px 2px;
-    }
-    to {
-        background-position-x: 720px, 710, 714px, -50px;
-        background-size: 47px 25px, 12px 5px, 6px 5px, 800px 2px;
-    }
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn {
-    position: relative;
-    top: 15px;
-    left: 0;
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn .gt-aside-icon {
-    position: relative;
-    top: 1px;
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-animation-name: swing;
-    animation-name: swing;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper:hover .gt-aside-toggle-btn .gt-aside-icon {
-    -webkit-animation-name: driftUp;
-    animation-name: driftUp;
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    transition: background-color 0.5s;
-    background-color: #96225E;
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper .gt-aside-toggle-btn .gt-aside-label {
-    font-family: 'Josefin Sans';
-    color: #96225E;
-    position: relative;
-    top: -18px;
-}
-
-.gt-aside.gt-aside-collapse .gt-aside-toggle-btn-wrapper:hover .gt-aside-toggle-btn .gt-aside-label {
-    -webkit-animation-duration: .6s;
-    animation-duration: .6s;
-    -webkit-animation-delay: .1s;
-    animation-delay: .1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
-}
-
-
-/* #endregion */
 
 #main.main .post.type-post,
 .post.type-post {
@@ -241,4 +185,7 @@
 
 #main.main .post-thumbnail-container:hover+.featured-bar::before {
     opacity: 0;
+}
+#main.main  pre {
+    border: none;
 }
