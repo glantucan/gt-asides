@@ -1,0 +1,211 @@
+/*
+GT Asides basic css. Only loads when an aside is detected on a post. 
+I intentionally omitted the .gt-aside (and others) selector so styles can be easilly overriden by specifity on the theme
+*/
+
+
+.gt-aside {
+    min-height: 3em;
+    
+}
+
+
+/*
+    Opened aside
+---------------------------------------------------------------------------*/
+
+.gt-aside .gt-toggle-btn {
+    position:absolute;
+    right:0;
+    width: 100%;
+    text-align:right;
+    cursor: pointer;
+    height:130px;
+    color:#777;
+    z-index:101;
+}
+
+.gt-aside .gt-toggle-btn .gt-icon {
+    pointer-events: none;
+    display: inline-block;
+    vertical-align: 0;
+    width: 12%;
+    font-size: 30px;
+    text-align: left;
+    border-radius: 5px 0 0 5px;
+    background-color: transparent;
+}
+
+.gt-aside .gt-toggle-btn .gt-icon .icon{
+    display:inline-block;
+    /* matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
+    transform: matrix(2.5, 0, 0, 2.5, 20, 20);
+    transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);;
+}
+
+.gt-aside .gt-toggle-btn .gt-label {
+    pointer-events: none;
+    display: inline-block;
+    text-align: right;
+    vertical-align: 8px;
+    opacity: .9;
+}
+
+.gt-aside .gt-toggle-btn .gt-close-label {
+    display:none;
+}
+
+.gt-aside .gt-content {
+    position:relative;
+    box-sizing: border-box;
+    display:block;
+    padding: 50px 16% 2em 16%;
+    width: 132%;
+    margin-left: -16%;
+    max-height: 3000px;
+    background-color: #e2e2e2;
+    z-index:100;
+    overflow: hidden;
+    transition: box-shadow 0.5s, background-color 0.3s, max-height 0.5s 0.2s, padding-bottom 0.5s;
+    -moz-box-shadow:    inset 0 0 12px #949292;
+    -webkit-box-shadow: inset 0 0 12px #949292;
+    box-shadow:         inset 0 0 12px #949292;
+    margin-bottom: 1em;
+}
+
+
+
+/*
+    Not collapsible
+--------------------------------------------------------------------------*/
+
+.gt-aside.gt-not-collapsible .gt-toggle-btn {
+    position:absolute;
+    left:0;
+    padding: 0.1em 1.5em 0 0;
+    height:80px;
+    width: 12%;
+    text-align:right;
+    cursor: auto;
+    color:#7795bb;
+}
+.gt-aside.gt-not-collapsible .gt-toggle-btn .gt-label {
+    display:none;
+}
+.gt-aside.gt-not-collapsible .gt-toggle-btn .gt-icon {
+    right:0;
+    width:100%;
+    text-align: right;
+    font-size: 50px;
+}
+.gt-aside.gt-not-collapsible .gt-toggle-btn .gt-icon .icon {
+    transform:none;
+}
+
+.gt-aside.gt-not-collapsible .gt-content {
+    background-color: #f8f8fc;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+    border-top: 1px solid #b1c2d8;;
+    border-bottom: 1px solid #b1c2d8;
+    padding-top: 2em; 
+}
+
+
+
+/*
+    Collapsed aside
+---------------------------------------------------------------------------*/
+.gt-aside.gt-collapse .gt-toggle-btn {
+    position:absolute;
+    right:0;
+    width: 100%;
+    text-align:right;
+    cursor: pointer;
+    height:30px;
+}
+
+.gt-aside.gt-collapse .gt-toggle-btn .gt-icon {
+    background-color: #e2e2e2;
+    -moz-box-shadow:    inset 1px 2px 7px #aaa9a9;
+    -webkit-box-shadow: inset 1px 2px 7px #aaa9a9;
+    box-shadow:         inset 1px 2px 7px #aaa9a9;
+    transition: box-shadow 0.3s 0.3s, background-color 0.3s 0.3s;
+}
+.gt-aside.gt-collapse .gt-toggle-btn .gt-icon .icon {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.gt-aside.gt-collapse .gt-toggle-btn .gt-label {
+    pointer-events: none;
+    display: inline-block;
+    text-align: right;
+    vertical-align: 7px;
+}
+
+.gt-aside.gt-collapse .gt-toggle-btn .gt-close-label {
+    display:none;
+}
+
+.gt-aside.gt-collapse .gt-content {
+    max-height: 30px;
+    padding-bottom:0;
+    background-color: transparent;
+    transition:  box-shadow 0.5s, background-color 0.3s 0.3s, max-height 0.5s, padding-bottom 0.5s;
+    -moz-box-shadow:    inset 0 0 0  #aaa9a9;
+    -webkit-box-shadow: inset 0 0 0  #aaa9a9;
+    box-shadow:         inset 0 0 0  #aaa9a9;
+}
+
+/*
+    Collapsed aside hover
+---------------------------------------------------------------------------*/
+
+
+/*
+    Styles by aside content type
+---------------------------------------------------------------------------*/
+
+/* WARNING ----------------------------------------------------------------*/
+
+.gt-aside.gt-not-collapsible.gt-warning .gt-toggle-btn {
+    color:#f1bb67;
+}
+.gt-aside.gt-not-collapsible.gt-warning .gt-content {
+    background-color: #fffbf5;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+    border-top: 1px solid #d6a75c;;
+    border-bottom: 1px solid #d6a75c;
+    padding-top: 2em; 
+}
+
+/* EXERCISES --------------------------------------------------------------*/
+.gt-aside.gt-exercises .gt-toggle-btn {
+    color:#8a9710;
+}
+
+.gt-aside.gt-exercises .gt-content {
+    background-color: #edf1d6;
+    -moz-box-shadow:    inset 0 0 12px #8a9710;
+    -webkit-box-shadow: inset 0 0 12px #8a9710;
+    box-shadow:         inset 0 0 12px #8a9710;
+    color:#646e02;
+}
+
+.gt-aside.gt-collapse.gt-exercises .gt-content {
+    
+    background-color: transparent;
+    -moz-box-shadow:    inset 0 0 0  #8a9710;
+    -webkit-box-shadow: inset 0 0 0  #8a9710;
+    box-shadow:         inset 0 0 0  #8a9710;
+}
+.gt-aside.gt-collapse.gt-exercises .gt-toggle-btn .gt-icon {
+    background-color: #edf1d6;
+    -moz-box-shadow:    inset 1px 2px 7px #8a9710;
+    -webkit-box-shadow: inset 1px 2px 7px #8a9710;
+    box-shadow:         inset 1px 2px 7px #8a9710;
+}

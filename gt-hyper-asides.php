@@ -29,41 +29,107 @@ $GT_ASIDES_CONF_DEFAULTS = array(
         'collapsed' => array(
             'class' => 'gt-collapse',
         ),
+        'not-collapsible' => array(
+            'class' => 'gt-not-collapsible',
+        ),
         'button' => array(
             'class' => 'gt-toggle-btn',
             'closedLabel' => 'Cerrar inciso',
-            'openedLabel' => 'Leer más ... ',
+            'openedLabel' => 'Abrir inciso &rarr;',
             'mouseOver' => 'go-in',
             'mouseOut' => 'go-out',
         ),
-        'content-class' => 'gt-content',
         'types' => array(
+            'default' => array(
+                'class' => 'gt-default',
+                'label' => 'Inciso &rarr;',
+                'icon' => 'icon-ellipsis',
+            ),
+            'needed' => array( 
+                'class' => 'gt-needed',
+                'label' => 'Necesitas saber',
+                'icon' => 'icon-help-circled',
+            ),
             'more' => array(
                 'class' => 'gt-more',
-                'label' => '',
+                'label' => 'ampliación',
+                'icon' => 'icon-more',
             ),
             'example' => array(
                 'class' => 'gt-example',
-                'label' => '',
+                'label' => 'por ejemplo',
+                'icon' => 'icon-code',
+            ),
+            'example-complete'  => array(
+                'class' => 'gt-example',
+                'label' => 'por ejemplo',
+                'icon' => 'icon-file-code',
             ),
             'definition' => array(
                 'class' => 'gt-definition',
-                'label' => '',
+                'label' => 'definición',
+                'icon' => 'icon-key',
             ),
             'background' => array(
                 'class' => 'gt-background',
-                'label' => '',
+                'label' => 'contexto',
+                'icon' => 'icon-coffee',
             ),
             'in-depth' => array(
                 'class' => 'gt-in-depth',
-                'label' => '',
+                'label' => 'en profundidad',
+                'icon' => 'icon-cog-alt',
             ),
-            'story' => array(
-                'class' => 'gt-story',
-                'label' => '',
+            'clarify' => array(
+                'class' => 'gt-clarify',
+                'label' => 'Aclaración: ',
+                'icon' => 'icon-info-circled',
             ),
+            'help' => array(
+                'class' => 'gt-help',
+                'label' => 'ayuda - pista',
+                'icon' => 'icon-lightbulb',
+            ),
+            'exercises' => array(
+                'class' => 'gt-exercises',
+                'label' => 'Ejercicios',
+                'icon' => 'icon-keyboard',
+            ),
+            'warning' => array(
+                'class' => 'gt-warning',
+                'label' => 'cuidado',
+                'icon' => 'icon-attention',
+            ),
+            'danger' => array(
+                'class' => 'gt-danger',
+                'label' => 'peligro',
+                'icon' => 'icon-bomb',
+            ),
+            'tip' => array(
+                'class' => 'gt-tip',
+                'label' => 'truco',
+                'icon' => 'icon-magic',
+            ),
+            'important' => array (
+                'class' => 'gt-important',
+                'label' => 'presta atención',
+                'icon' => 'icon-bullhorn',
+            ),
+            'recall' => array(
+                'class' => 'gt-recall',
+                'label' => 'recuerda',
+                'icon' => 'icon-attach',
+            ),
+            'remember' => array(
+                'class' => 'gt-remember',
+                'label' => 'toma nota',
+                'icon' => 'icon-edit',
+            ),
+
+
         ),
     ),
+
     'markdown_parser' => WPCom_Markdown::get_instance(),
 );
 
@@ -112,14 +178,15 @@ function gt_asides_enqueue_assets_for_posts($post) {
     global $GT_ASIDES_CONF_DEFAULTS;
     // This ought to be on a child theme
     
-    wp_enqueue_style( 'gt-animate-css', GT_ASIDES_URL . 'css/animate.css' );
-    wp_enqueue_style( 'gt-aside-animations-css', GT_ASIDES_URL . 'css/gt-aside-animations.css' );
-    wp_enqueue_style( 'gt-style-css', GT_ASIDES_URL . 'css/gt-style.css' );
+    wp_enqueue_style( 'gt-animate-css', GT_ASIDES_URL . 'assets/css/animate.css' );
+    wp_enqueue_style( 'gt-aside-animations-css', GT_ASIDES_URL . 'assets/css/gt-aside-animations.css' );
+    wp_enqueue_style( 'gt-style-css', GT_ASIDES_URL . 'assets/css/gt-style.css' );
 
     if ( is_single() || is_page() ) {
         // Check whether we do have [aside ...] or not in the post before loading css and scripts
         if ( stripos($post->post_content, '[aside') ) {
-            wp_enqueue_style( 'gt-asides-css', GT_ASIDES_URL . 'css/gt-asides.css' );
+            wp_enqueue_style( 'fontello-css', GT_ASIDES_URL . 'assets/fonts/font-icons/css/fontello.css' );
+            wp_enqueue_style( 'gt-asides-css', GT_ASIDES_URL . 'assets/css/gt-asides.css' );
             wp_enqueue_script( 'gt-asides-js', GT_ASIDES_URL . 'js/gt-asides.js', array(), null, true );
             wp_localize_script('gt-asides-js', 'wp_gtAsidesData', array(
                 'postId' => 'post-' . $post->ID,
@@ -133,6 +200,8 @@ function gt_asides_enqueue_assets_for_posts($post) {
 }
 
 add_action( 'admin_menu', 'gt_asides_add_admin_pages' );
+
+
 /**
  * Creates an admin page for the plugin
  * FIXME: Do we need an admin page?
